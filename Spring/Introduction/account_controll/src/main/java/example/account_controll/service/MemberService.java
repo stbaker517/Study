@@ -12,10 +12,10 @@ import java.util.Optional;
 //@Service
 public class MemberService {
     //ctrl + shift + T => 자동으로 테스트 파일 생성
-    private final MemoryMemberRepository memberRepository;//= new MemoryMemberRepository();
+    private final MemberRepository memberRepository;//= new MemoryMemberRepository();
 
     //@Autowired
-    public MemberService(MemoryMemberRepository memberRepository) {
+    public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 
