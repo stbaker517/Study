@@ -14,10 +14,27 @@ import java.util.List;
 public class MemberController {
     private final MemberService memberService;// = new MemberService();
 
-    @Autowired // 스프링 빈에 하나의 인스턴스만을 존재하게 할 수 있음. 굳이 각 컨트롤러가  new해서 따로 쓸 필요 없으니까 스프링 컨테이너 안에 하나의 객체만 존재하도록 한다.
+    /*
+     필드 주입. 필드 주입 별로 안 좋아함.
+    * @Autowired
+    * private MemberService memberService;
+    * */
+
+    //DI :: 생성자 주입. 가장 추천되는 방법. why: 어플리케이션 빌드 때에만 설정되고 그 이후에 건들 수가 없음.
+    //@Autowired // 스프링 빈에 하나의 인스턴스만을 존재하게 할 수 있음. 굳이 각 컨트롤러가  new해서 따로 쓸 필요 없으니까 스프링 컨테이너 안에 하나의 객체만 존재하도록 한다.
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
+
+    /*
+      DI::setter주입
+      단점. 퍼블릭으로 선언 돼야함. 퍼블릭하게 노출이 되는 것이 문제.
+      private MemberService memberService;
+    * @Autowired
+    * public void setMemberService(MemberService memberService){
+    *   this.memberService = memberService;
+    * }
+    * */
 
     //self test
     @GetMapping("signup")

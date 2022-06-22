@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
     //ctrl + shift + T => 자동으로 테스트 파일 생성
     private final MemoryMemberRepository memberRepository;//= new MemoryMemberRepository();
 
-    @Autowired
+    //@Autowired
     public MemberService(MemoryMemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
